@@ -1,0 +1,64 @@
+/*
+Syntax error: Undefined variable: "$light2".
+        on line 16 of src/scss/forms.scss
+
+11: input[disabled],
+12: select[disabled],
+13: select[disabled] option,
+14: select[disabled] optgroup,
+15: textarea[disabled] {
+16: 	color: $light2;
+17: }
+18: 
+19: 
+20: // Common Form Styles
+21: form { margin-bottom: $baseline; @include font; @include clearfix;
+
+Backtrace:
+src/scss/forms.scss:16
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/variable.rb:49:in `_perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/node.rb:40:in `perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:296:in `visit_prop'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:315:in `_render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:262:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:299:in `block in watch'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `report_changes'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:208:in `poll_changed_dirs'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$light2\".\A         on line 16 of src/scss/forms.scss\A \A 11: input[disabled],\A 12: select[disabled],\A 13: select[disabled] option,\A 14: select[disabled] optgroup,\A 15: textarea[disabled] {\A 16: 	color: $light2;\A 17: }\A 18: \A 19: \A 20: // Common Form Styles\A 21: form { margin-bottom: $baseline; @include font; @include clearfix;"; }

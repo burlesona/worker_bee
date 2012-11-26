@@ -1,0 +1,64 @@
+/*
+Syntax error: Undefined variable: "$color1".
+        on line 106 of src/scss/resetize.scss
+
+101: 
+102: /* =============================================================================
+103: 	 Links
+104: 	 ========================================================================== */
+105: 
+106: a { color: $color1; text-decoration: none;
+107: 	&:hover { text-decoration: underline; outline: 0; } // Improves readability when focused and also mouse hovered in all browsers
+108: 	&:active { color: lighten( $color1, 10% ); }
+109: 	&:visited { color: $color1; }
+110: 	&:focus { outline: thin dotted;} // Addresses outline displayed oddly in Chrome
+111: }
+
+Backtrace:
+src/scss/resetize.scss:106
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/variable.rb:49:in `_perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/node.rb:40:in `perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:296:in `visit_prop'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:315:in `_render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:262:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:299:in `block in watch'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `report_changes'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:208:in `poll_changed_dirs'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$color1\".\A         on line 106 of src/scss/resetize.scss\A \A 101: \A 102: /* =============================================================================\A 103: 	 Links\A 104: 	 ========================================================================== */\A 105: \A 106: a { color: $color1; text-decoration: none;\A 107: 	&:hover { text-decoration: underline; outline: 0; } // Improves readability when focused and also mouse hovered in all browsers\A 108: 	&:active { color: lighten( $color1, 10% ); }\A 109: 	&:visited { color: $color1; }\A 110: 	&:focus { outline: thin dotted;} // Addresses outline displayed oddly in Chrome\A 111: }"; }
