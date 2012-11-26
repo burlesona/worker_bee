@@ -1,5 +1,5 @@
 # Load all the necessary files via requireJS, then start the app.
-require ['jquery','controller','views','ui','login','user'], ($) ->
+require ['jquery','controller','views','ui','login','user','projects'], ($) ->
 	jQuery ->
 		Hive.start()
 
@@ -8,7 +8,7 @@ root = exports ? this
 
 # The Parent Hive Object, basically a container for the app.
 root.Hive =
-	# Data needed throughout the app is stored here.
+	# Data obtained from the API is stored here using its resource name as the key.
 	data:
 		{}
 
@@ -28,18 +28,15 @@ root.Hive =
 
 			# Load the User Handler (allows logout)
 			userHandler = new Hive.UserHandler # Shows logged-in status and allows logout
-		
-			# Temporary, clear main view and call user handler. Replace with load main view instead.
-			Hive.Controller.setView 'main', '', ->
-				userHandler.render()
-		
+
+			# Load the current view
+			Hive.Controller.load()
 
 		# If a user is not logged in, prompt to login.
 		else
 			console.log "PROMPT!"
 			loginHandler = new Hive.LoginHandler
-			loginHandler.render()
-	
+
 
 	# Login a user and restart the app
 	login: (key, user) ->
@@ -58,3 +55,17 @@ root.Hive =
 	# Converts a resource name into a URL
 	resource: (name) ->
 		"https://agilezen.com/api/v1/" + name
+
+	# Get data from the memory or load from API, then run the callback function.
+	getData: (name, callback) ->
+		if Hive.data[name]?
+			callback(Hive.data[name])
+		else
+			$.ajax
+				url: Hive.resource(name)
+				async: false
+				error: (xhr, status, error) ->
+					# TODO: Display error in the toolbar?
+				success: (data, status, error) ->
+					Hive.data[name] = data
+					callback(data)

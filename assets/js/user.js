@@ -11,43 +11,25 @@
     __extends(UserHandler, _super);
 
     function UserHandler() {
+      this.resource = 'me';
       this.name = 'userHandler';
       this.viewport = 'session';
-      this.loadUser();
-      console.log("Called this constructor");
+      this.load();
+      this.render();
     }
 
     UserHandler.prototype.bind = function(container) {
       this.container = container;
       this.logout = this.container.find('a');
-      console.log(this.logout);
       return this.bindLink();
     };
 
-    UserHandler.prototype.loadUser = function() {
-      var self, _ref;
-      console.log("Loading User");
-      self = this;
-      if ((_ref = Hive.data.user) != null ? _ref : this.data = Hive.data.user) {
-
-      } else {
-        return $.ajax({
-          url: Hive.resource('me'),
-          error: function(xhr, status, error) {},
-          success: function(data, status, error) {
-            Hive.data.user = data;
-            return self.data = data;
-          }
-        });
-      }
-    };
-
     UserHandler.prototype.bindLink = function() {
-      console.log("Called bind link");
       return this.logout.click(function(event) {
         event.preventDefault();
-        console.log("Calling logout");
-        return Hive.logout();
+        return Hive.Controller.setViewport('session', '', function() {
+          return Hive.logout();
+        });
       });
     };
 

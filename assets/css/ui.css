@@ -1,0 +1,61 @@
+/*
+Syntax error: Undefined variable: "$white".
+        on line 3 of src/scss/ui.scss
+
+1: div.login_handler {
+2: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;
+3: 	background: $white; @include box-shadow;
+4: 	p { font-size: 20px; line-height: 28px; }
+5: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }
+6: 	input#api_key { width: 70%; margin: 0; }
+7: 	input[type=submit] { width: 28%; margin: 0; }
+8: }
+
+Backtrace:
+src/scss/ui.scss:3
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/variable.rb:49:in `_perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/node.rb:40:in `perform'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:296:in `visit_prop'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:318:in `visit_rule'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `map'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:107:in `block in visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:119:in `with_environment'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:106:in `visit_children'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:126:in `visit_root'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/base.rb:37:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:98:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/root_node.rb:20:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:315:in `_render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/engine.rb:262:in `render'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:341:in `update_stylesheet'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `each'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/plugin/compiler.rb:299:in `block in watch'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:108:in `on_change'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `call'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:196:in `report_changes'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapter.rb:208:in `poll_changed_dirs'
+/Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/listen-0.6.0/lib/listen/adapters/darwin.rb:38:in `block in start'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: Undefined variable: \"$white\".\A         on line 3 of src/scss/ui.scss\A \A 1: div.login_handler {\A 2: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;\A 3: 	background: $white; @include box-shadow;\A 4: 	p { font-size: 20px; line-height: 28px; }\A 5: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }\A 6: 	input#api_key { width: 70%; margin: 0; }\A 7: 	input[type=submit] { width: 28%; margin: 0; }\A 8: }"; }

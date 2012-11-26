@@ -2,14 +2,25 @@
 root = exports ? this
 
 Hive.Controller =
-	# Selectors for the primary view areas.
+	# Selectors for the primary viewports.
 	main: -> $('section#main')
-	message: ->	$('div#message_bar')
+	toolbar: ->	$('div#toolbar')
 	session: -> $('div#session')
 
-	# Place content in a view.
-	setView: (viewName, content, callback) ->
-		console.log "SET VIEW: " + viewName
+	# Place content in a viewport.
+	setViewport: (viewName, content, callback) ->
+		console.log "SET VIEWPORT: " + viewName
 		this[viewName]().fadeOut 500, ->
 			$(this).html( content ).fadeIn 500, ->
-				callback()
+				callback() if callback?
+
+	# Load the view for a given resource.
+	load: (resource) ->
+		if resource?
+			# load that view
+		else if localStorage['active_resource']?
+			# load that view
+		else if localStorage['active_project']?
+			# load that project view
+		else
+			projectSelector = new Hive.ProjectSelector

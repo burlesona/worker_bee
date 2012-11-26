@@ -6,10 +6,16 @@
 
   Hive.Views = {
     loginHandler: function() {
-      return $("<div id=\"login\">\n	<h1>Welcome to Worker Bee</h1>\n	<p>Please login with your AgileZen API Key.</p>\n	<div class=\"input\">\n		<form action=\"/\" method=\"get\">\n			<input id=\"api_key\" type=\"text\"></input>\n			<input type=\"submit\" value=\"Login\"></input>\n			<div class=\"status\"></div>\n		</form>\n	</div>\n	<p class=\"hint\">Test API Key: d67bb4e8a3124603a69f7587020cffc2</p>\n</div>");
+      return $("<div class=\"login_handler\">\n	<h1>Welcome to Worker Bee</h1>\n	<p>Please login with your AgileZen API Key.</p>\n	<div class=\"input\">\n		<form action=\"/\" method=\"get\">\n			<input id=\"api_key\" type=\"text\"></input>\n			<input type=\"submit\" value=\"Login\"></input>\n			<div class=\"status\"></div>\n		</form>\n	</div>\n	<p class=\"hint\">Test API Key: d67bb4e8a3124603a69f7587020cffc2</p>\n</div>");
     },
     userHandler: function(data) {
-      return $("<div id=\"user\">\n	<span class=\"username\">" + data.name + "</span> | <a href=\"#\">Logout</a>\n</div>");
+      return $("<div class=\"user_handler\">\n	<span class=\"username\">" + data.name + "</span> | <a href=\"#\">Logout</a>\n</div>");
+    },
+    projectSelector: function(data) {
+      return $("<div class=\"project_selector\">\n</div>");
+    },
+    projectSelectorItem: function(data) {
+      return $("<div class=\"project\">\n	<h1>" + data.name + " <small>" + data.id + "</small></h1>\n	<p class=\"description\">\n		" + data.description + "\n	</p>\n	<a class=\"button\">Select</a>\n</div>");
     }
   };
 

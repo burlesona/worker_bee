@@ -2,7 +2,7 @@
 (function() {
   var root;
 
-  require(['jquery', 'controller', 'views', 'ui', 'login', 'user'], function($) {
+  require(['jquery', 'controller', 'views', 'ui', 'login', 'user', 'projects'], function($) {
     return jQuery(function() {
       return Hive.start();
     });
@@ -24,13 +24,10 @@
           }
         });
         userHandler = new Hive.UserHandler;
-        return Hive.Controller.setView('main', '', function() {
-          return userHandler.render();
-        });
+        return Hive.Controller.load();
       } else {
         console.log("PROMPT!");
-        loginHandler = new Hive.LoginHandler;
-        return loginHandler.render();
+        return loginHandler = new Hive.LoginHandler;
       }
     },
     login: function(key, user) {
@@ -47,6 +44,21 @@
     },
     resource: function(name) {
       return "https://agilezen.com/api/v1/" + name;
+    },
+    getData: function(name, callback) {
+      if (Hive.data[name] != null) {
+        return callback(Hive.data[name]);
+      } else {
+        return $.ajax({
+          url: Hive.resource(name),
+          async: false,
+          error: function(xhr, status, error) {},
+          success: function(data, status, error) {
+            Hive.data[name] = data;
+            return callback(data);
+          }
+        });
+      }
     }
   };
 

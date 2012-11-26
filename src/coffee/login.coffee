@@ -8,6 +8,7 @@ class Hive.LoginHandler extends Hive.UiObject
 	constructor: ->
 		@name = 'loginHandler'
 		@viewport = 'main'
+		this.render()
 
 	bind: (container) ->
 		@container = container
@@ -24,6 +25,8 @@ class Hive.LoginHandler extends Hive.UiObject
 			event.preventDefault()
 			self.tryLogin()
 			return false
+
+	# Special method for only the login handler, normal objects delegate API calls to Hive.
 
 	# Send a request to get 'me' info from server.
 	# If it succeeds, save the user info and api_key and continue as logged in.

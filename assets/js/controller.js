@@ -8,19 +8,33 @@
     main: function() {
       return $('section#main');
     },
-    message: function() {
-      return $('div#message_bar');
+    toolbar: function() {
+      return $('div#toolbar');
     },
     session: function() {
       return $('div#session');
     },
-    setView: function(viewName, content, callback) {
-      console.log("SET VIEW: " + viewName);
+    setViewport: function(viewName, content, callback) {
+      console.log("SET VIEWPORT: " + viewName);
       return this[viewName]().fadeOut(500, function() {
         return $(this).html(content).fadeIn(500, function() {
-          return callback();
+          if (callback != null) {
+            return callback();
+          }
         });
       });
+    },
+    load: function(resource) {
+      var projectSelector;
+      if (resource != null) {
+
+      } else if (localStorage['active_resource'] != null) {
+
+      } else if (localStorage['active_project'] != null) {
+
+      } else {
+        return projectSelector = new Hive.ProjectSelector;
+      }
     }
   };
 

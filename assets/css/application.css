@@ -637,6 +637,9 @@ section#main {
   width: 100%;
   height: 100%; }
 
+small {
+  color: #bbbbbb; }
+
 header {
   margin: 0 auto;
   width: 1000px;
@@ -646,7 +649,7 @@ header {
     float: left;
     width: 100px;
     height: 50px; }
-  header div#message_bar {
+  header div#toolbar {
     float: left;
     width: 750px;
     height: 50px; }
@@ -662,26 +665,40 @@ header {
     visibility: hidden;
     overflow: hidden; }
 
-div#login {
+div.login_handler {
   width: 400px;
   height: 240px;
   margin: 150px auto 0;
   padding: 80px;
-  background: #FFF;
+  background: white;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25); }
-  div#login p {
+  div.login_handler p {
     font-size: 20px;
     line-height: 28px; }
-  div#login p.hint {
+  div.login_handler p.hint {
     font-style: italic;
     font-size: 12px;
     line-height: 14px;
     color: #9a9fa0; }
-  div#login input#api_key {
+  div.login_handler input#api_key {
     width: 70%;
     margin: 0; }
-  div#login input[type=submit] {
+  div.login_handler input[type=submit] {
     width: 28%;
     margin: 0; }
+
+div.project_selector {
+  width: 600px;
+  margin: 150px auto 0;
+  text-align: center; }
+  div.project_selector div.project {
+    display: inline-block;
+    width: 220px;
+    padding: 40px;
+    background: white;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    text-align: left; }

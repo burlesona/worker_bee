@@ -4,7 +4,7 @@ root = exports ? this
 Hive.Views =
 	loginHandler: ->
 		$("""
-		<div id="login">
+		<div class="login_handler">
 			<h1>Welcome to Worker Bee</h1>
 			<p>Please login with your AgileZen API Key.</p>
 			<div class="input">
@@ -20,7 +20,24 @@ Hive.Views =
 
 	userHandler: (data) ->
 		$("""
-			<div id="user">
+			<div class="user_handler">
 				<span class="username">#{data.name}</span> | <a href="#">Logout</a>
+			</div>
+		""")
+
+	projectSelector: (data) ->
+		$("""
+			<div class="project_selector">
+			</div>
+		""")
+
+	projectSelectorItem: (data) ->
+		$("""
+			<div class="project">
+				<h1>#{data.name} <small>#{data.id}</small></h1>
+				<p class="description">
+					#{data.description}
+				</p>
+				<a class="button">Select</a>
 			</div>
 		""")

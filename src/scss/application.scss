@@ -20,8 +20,9 @@ $notice2: #FFD939;
 $error1: #FFDCDC;
 $error2: #D64338;
 
-$white: #FFFFFF;
-$black: #000000;
+$white: #FFF;
+$gray: #BBB;
+$black: #000;
 
 // TYPOGRAPHY DEFINITIONS
 $sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -42,20 +43,14 @@ input[type=text] { @include standard_input; }
 input[type=submit] { display: inline-block; vertical-align: baseline; height: 28px; }
 div.status.error { color: $error2; }
 section#main { position: relative; width: 100%; height: 100%; }
+small { color: $gray; }
 
 header {
 	margin: 0 auto; width: 1000px; height: 50px; line-height: 50px;
 	div#branding { float: left; width: 100px; height: 50px; }
-	div#message_bar { float: left; width: 750px; height: 50px; }
+	div#toolbar { float: left; width: 750px; height: 50px; }
 	div#session { float: left; width: 150px; height: 50px; }
 	@include clearfix;
 }
 
-div#login {
-	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;
-	background: #FFF; @include box-shadow;
-	p { font-size: 20px; line-height: 28px; }
-	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }
-	input#api_key { width: 70%; margin: 0; }
-	input[type=submit] { width: 28%; margin: 0; }
-}
+@import 'ui';

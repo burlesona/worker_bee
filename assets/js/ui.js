@@ -12,8 +12,16 @@
       var element, self;
       self = this;
       element = Hive.Views[this.name](this.data);
-      return Hive.Controller.setView(this.viewport, element, function() {
+      return Hive.Controller.setViewport(this.viewport, element, function() {
         return self.bind(element);
+      });
+    };
+
+    UiObject.prototype.load = function() {
+      var self;
+      self = this;
+      return Hive.getData(this.resource, function() {
+        return self.data = Hive.data[self.resource];
       });
     };
 

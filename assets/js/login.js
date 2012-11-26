@@ -15,6 +15,7 @@
     function LoginHandler() {
       this.name = 'loginHandler';
       this.viewport = 'main';
+      this.render();
     }
 
     LoginHandler.prototype.bind = function(container) {
