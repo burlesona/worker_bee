@@ -5,8 +5,8 @@ $light2: #9A9FA0;
 $dark1: #3C3E40;
 $dark2: #262728;
 
-$color1: #F4B84D;
-$color2: #E59013;
+$color1: #0000FF;
+$color2: #000099;
 
 $alt1: #4E7DF2;
 $alt2: #2C4A84;
@@ -40,13 +40,13 @@ $baseline: 18px;
 body { background: #EEE; @include font; }
 input[type=text] { @include standard_input; }
 input[type=submit] { display: inline-block; vertical-align: baseline; height: 28px; }
-
+div.status.error { color: $error2; }
 section#main { position: relative; width: 100%; height: 100%; }
 
 header {
 	margin: 0 auto; width: 1000px; height: 50px; line-height: 50px;
 	div.branding { float: left; width: 100px; height: 50px; }
-	div.status { float: left; width: 950px; height: 50px; }
+	div.message_bar { float: left; width: 750px; height: 50px; }
 	div.user { float: left; width: 150px; height: 50px; }
 	@include clearfix;
 }

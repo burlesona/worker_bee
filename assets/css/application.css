@@ -88,15 +88,15 @@ textarea {
 	 Links
 	 ========================================================================== */
 a {
-  color: #f4b84d;
+  color: blue;
   text-decoration: none; }
   a:hover {
     text-decoration: underline;
     outline: 0; }
   a:active {
-    color: #f7cb7d; }
+    color: #3333ff; }
   a:visited {
-    color: #f4b84d; }
+    color: blue; }
   a:focus {
     outline: thin dotted; }
 
@@ -629,6 +629,9 @@ input[type=submit] {
   vertical-align: baseline;
   height: 28px; }
 
+div.status.error {
+  color: #d64338; }
+
 section#main {
   position: relative;
   width: 100%;
@@ -643,9 +646,9 @@ header {
     float: left;
     width: 100px;
     height: 50px; }
-  header div.status {
+  header div.message_bar {
     float: left;
-    width: 950px;
+    width: 750px;
     height: 50px; }
   header div.user {
     float: left;

@@ -5,25 +5,51 @@
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   jQuery(function() {
+    localStorage.removeItem('api_key');
     return Hive.start();
   });
 
   root.Hive = {
+    data: {},
     start: function() {
+      var login;
+      console.log("START!");
       if (localStorage['api_key'] != null) {
         return this.loadApp();
       } else {
-        return this.handleLogin();
+        login = new Hive.LoginHandler;
+        return login.render();
       }
     },
     loadApp: function() {
-      Hive.UI.clear();
-      return console.log("LOAD APP TIME");
+      var userHandler;
+      console.log("Load App!");
+      $.ajaxSetup({
+        dataType: 'JSON',
+        headers: {
+          'X-Zen-ApiKey': localStorage['api_key']
+        }
+      });
+      userHandler = new Hive.UserHandler;
+      return userHandler.render();
     },
-    handleLogin: function() {
-      var handler;
-      handler = new Hive.LoginHandler;
-      return handler.render();
+    login: function(key, user) {
+      localStorage['api_key'] = key;
+      Hive.data.user = user;
+      return Hive.UI.clear(function() {
+        return Hive.start();
+      });
+    },
+    logout: function() {
+      console.log("Called Logout");
+      localStorage.removeItem('api_key');
+      this.data = {};
+      return Hive.UI.clear(function() {
+        return Hive.start();
+      });
+    },
+    resource: function(name) {
+      return "https://agilezen.com/api/v1/" + name;
     }
   };
 

@@ -5,12 +5,13 @@
 
   Hive.LoginHandler.prototype = {
     initialize: function(container) {
-      console.log(container);
       this.container = container;
       this.form = container.find('form');
       this.text_field = container.find('input#api_key');
       this.submit = container.find('input[type=submit]');
-      return this.bindForm();
+      this.status = container.find('div.status');
+      this.bindForm();
+      return this.text_field.focus();
     },
     bindForm: function() {
       var self;
@@ -22,31 +23,72 @@
       });
     },
     callApi: function() {
-      var key;
+      var key, self;
+      self = this;
       key = this.text_field.val();
       return $.ajax({
-        url: 'https://agilezen.com/api/v1/me',
-        dataType: 'JSON',
+        url: Hive.resource('me'),
         headers: {
           'X-Zen-ApiKey': key
         },
+        dataType: 'JSON',
         error: function(xhr, status, error) {
-          console.log(status);
+          self.status.text('Error: invalid key.').attr('class', 'status error');
           return console.log(xhr);
         },
         success: function(data, status, xhr) {
-          console.log(status);
-          console.log(data);
-          localStorage['api_key'] = key;
-          return Hive.start();
+          self.status.text('').attr('class', 'status');
+          return Hive.login(key, data);
         }
       });
     },
     render: function() {
       var container;
       container = Hive.Templates.loginHandler();
-      $('section#main').hide().html(container).fadeIn(1500);
-      return this.initialize($('div#login'));
+      Hive.UI.viewport().hide().html(container).fadeIn(1500);
+      return this.initialize(container);
+    }
+  };
+
+  Hive.UserHandler = function() {
+    if (Hive.data.user == null) {
+      return this.loadUser();
+    }
+  };
+
+  Hive.UserHandler.prototype = {
+    initialize: function(element) {
+      this.container = element.parent();
+      this.logout = this.container.find('a');
+      console.log(this.logout);
+      return this.bindLink();
+    },
+    loadUser: function() {
+      console.log("Loading User");
+      return $.ajax({
+        url: Hive.resource('me'),
+        error: function(xhr, status, error) {},
+        success: function(data, status, error) {
+          return Hive.data.user = data;
+        }
+      });
+    },
+    bindLink: function() {
+      console.log("Called bind link");
+      return this.logout.click(function(event) {
+        event.preventDefault();
+        console.log("Calling logout");
+        return Hive.logout();
+      });
+    },
+    render: function() {
+      var element, self;
+      console.log("called render");
+      self = this;
+      element = Hive.Templates.userHandler(Hive.data.user);
+      return Hive.UI.user().hide().html(element).fadeIn(1000, function() {
+        return self.initialize(element);
+      });
     }
   };
 
