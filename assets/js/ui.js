@@ -4,43 +4,21 @@
 
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
-  Hive.UI = {
-    viewport: function() {
-      return $('section#main');
-    },
-    message_bar: function() {
-      return $('header div.message_bar');
-    },
-    user: function() {
-      return $('header div.user');
-    },
-    all: function() {
-      return $('section#main, header div.message_bar, header div.user');
-    },
-    clear: function(callback) {
-      var self;
-      self = this;
-      console.log("Called clear");
-      $(":animated").promise().done(function() {
-        return self.all().each(function() {
-          return $(this).fadeOut(500, function() {
-            return $(this).html('').show();
-          });
-        });
-      });
-      return $(":animated").promise().done(function() {
-        return callback();
-      });
-    }
-  };
+  Hive.UiObject = (function() {
 
-  Hive.Templates = {
-    loginHandler: function() {
-      return $("<div id=\"login\">\n	<h1>Welcome to Worker Bee</h1>\n	<p>Please login with your AgileZen API Key.</p>\n	<div class=\"input\">\n		<form action=\"/\" method=\"get\">\n			<input id=\"api_key\" type=\"text\"></input>\n			<input type=\"submit\" value=\"Login\"></input>\n			<div class=\"status\"></div>\n		</form>\n	</div>\n	<p class=\"hint\">Test API Key: d67bb4e8a3124603a69f7587020cffc2</p>\n</div>");
-    },
-    userHandler: function(data) {
-      return $("<span class=\"username\">" + data.name + "</span> | <a href=\"#\">Logout</a>");
-    }
-  };
+    function UiObject() {}
+
+    UiObject.prototype.render = function() {
+      var element, self;
+      self = this;
+      element = Hive.Views[this.name](this.data);
+      return Hive.Controller.setView(this.viewport, element, function() {
+        return self.bind(element);
+      });
+    };
+
+    return UiObject;
+
+  })();
 
 }).call(this);

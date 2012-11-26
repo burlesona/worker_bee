@@ -1,51 +1,18 @@
 # GLOBAL SCOPE
 root = exports ? this
 
-Hive.UI =
-	viewport: ->
-		$('section#main')
+# Common Logic for all UI Objects
+class Hive.UiObject
+	# Any class that inherits must set the following properties in its constructor:
+	# @name is the name used for instances.
+	# @viewport is the name of the viewport this element should appear in.
+	# @data is the data for that instance, if there is data that should be rendered to the view.
 
-	message_bar: ->
-		$('header div.message_bar')
+	# Any class that inherits must also set the following methods:
+	# this.bind() is the function for binding any 
 
-	user: ->
-		$('header div.user')
-
-	all: ->
-		$('section#main, header div.message_bar, header div.user')
-	
-	# Fade out and clear the viewport, message bar, and user.
-	clear: (callback) ->
+	render: ->
 		self = this
-		console.log "Called clear"
-		
-		$(":animated").promise().done ->
-			self.all().each ->
-				$(this).fadeOut 500, ->
-					$(this).html('').show()
-
-		$(":animated").promise().done ->
-			callback()
-
-
-Hive.Templates =
-	loginHandler: ->
-		$("""
-		<div id="login">
-			<h1>Welcome to Worker Bee</h1>
-			<p>Please login with your AgileZen API Key.</p>
-			<div class="input">
-				<form action="/" method="get">
-					<input id="api_key" type="text"></input>
-					<input type="submit" value="Login"></input>
-					<div class="status"></div>
-				</form>
-			</div>
-			<p class="hint">Test API Key: d67bb4e8a3124603a69f7587020cffc2</p>
-		</div>
-		""")
-
-	userHandler: (data) ->
-		$("""
-			<span class="username">#{data.name}</span> | <a href="#">Logout</a>
-		""")
+		element = Hive.Views[@name](@data)
+		Hive.Controller.setView @viewport, element, ->
+			self.bind element

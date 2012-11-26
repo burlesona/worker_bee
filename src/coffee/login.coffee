@@ -1,8 +1,15 @@
-# Handler Object, presents a login form and
+# GLOBAL SCOPE
+root = exports ? this
+
+# Handler for Login
 Hive.LoginHandler = ->
 
-Hive.LoginHandler.prototype =
-	initialize: (container) ->
+class Hive.LoginHandler extends Hive.UiObject
+	constructor: ->
+		@name = 'loginHandler'
+		@viewport = 'main'
+
+	bind: (container) ->
 		@container = container
 		@form = container.find('form')
 		@text_field = container.find('input#api_key')
@@ -15,10 +22,13 @@ Hive.LoginHandler.prototype =
 		self = this
 		@form.submit (event) ->
 			event.preventDefault()
-			self.callApi()
+			self.tryLogin()
 			return false
 
-	callApi: ->
+	# Send a request to get 'me' info from server.
+	# If it succeeds, save the user info and api_key and continue as logged in.
+	# Otherwise, tell the user the api_key wasn't valid.
+	tryLogin: ->
 		self = this
 		key = @text_field.val()
 		$.ajax
@@ -31,43 +41,3 @@ Hive.LoginHandler.prototype =
 			success: (data, status, xhr) ->
 				self.status.text('').attr 'class', 'status'
 				Hive.login key, data
-
-	render: ->
-		container = Hive.Templates.loginHandler()
-		Hive.UI.viewport().hide().html( container ).fadeIn(1500)
-		this.initialize container
-
-
-Hive.UserHandler = ->
-	this.loadUser() unless Hive.data.user?
-
-
-Hive.UserHandler.prototype =
-	initialize: (element) ->
-		@container = element.parent()
-		@logout = @container.find('a')
-		console.log @logout
-		this.bindLink()
-
-	loadUser: ->
-		console.log "Loading User"
-		$.ajax
-			url: Hive.resource('me')
-			error: (xhr, status, error) ->
-				# Display error in the messagebar
-			success: (data, status, error) ->
-				Hive.data.user = data
-
-	bindLink: ->
-		console.log "Called bind link"
-		@logout.click (event) ->
-			event.preventDefault()
-			console.log "Calling logout"
-			Hive.logout()
-
-	render: ->
-		console.log "called render"
-		self = this
-		element = Hive.Templates.userHandler( Hive.data.user )
-		Hive.UI.user().hide().html( element ).fadeIn 1000, ->
-			self.initialize( element )

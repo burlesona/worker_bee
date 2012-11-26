@@ -2,51 +2,48 @@
 (function() {
   var root;
 
-  root = typeof exports !== "undefined" && exports !== null ? exports : this;
-
-  jQuery(function() {
-    localStorage.removeItem('api_key');
-    return Hive.start();
+  require(['jquery', 'controller', 'views', 'ui', 'login', 'user'], function($) {
+    return jQuery(function() {
+      return Hive.start();
+    });
   });
+
+  root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   root.Hive = {
     data: {},
     start: function() {
-      var login;
+      var loginHandler, userHandler;
       console.log("START!");
       if (localStorage['api_key'] != null) {
-        return this.loadApp();
+        console.log("CONTINUE!");
+        $.ajaxSetup({
+          dataType: 'JSON',
+          headers: {
+            'X-Zen-ApiKey': localStorage['api_key']
+          }
+        });
+        userHandler = new Hive.UserHandler;
+        return Hive.Controller.setView('main', '', function() {
+          return userHandler.render();
+        });
       } else {
-        login = new Hive.LoginHandler;
-        return login.render();
+        console.log("PROMPT!");
+        loginHandler = new Hive.LoginHandler;
+        return loginHandler.render();
       }
     },
-    loadApp: function() {
-      var userHandler;
-      console.log("Load App!");
-      $.ajaxSetup({
-        dataType: 'JSON',
-        headers: {
-          'X-Zen-ApiKey': localStorage['api_key']
-        }
-      });
-      userHandler = new Hive.UserHandler;
-      return userHandler.render();
-    },
     login: function(key, user) {
+      console.log("LOGIN!");
       localStorage['api_key'] = key;
       Hive.data.user = user;
-      return Hive.UI.clear(function() {
-        return Hive.start();
-      });
+      return Hive.start();
     },
     logout: function() {
-      console.log("Called Logout");
+      console.log("LOGOUT!");
       localStorage.removeItem('api_key');
       this.data = {};
-      return Hive.UI.clear(function() {
-        return Hive.start();
-      });
+      return Hive.start();
     },
     resource: function(name) {
       return "https://agilezen.com/api/v1/" + name;

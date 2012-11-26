@@ -45,9 +45,9 @@ section#main { position: relative; width: 100%; height: 100%; }
 
 header {
 	margin: 0 auto; width: 1000px; height: 50px; line-height: 50px;
-	div.branding { float: left; width: 100px; height: 50px; }
-	div.message_bar { float: left; width: 750px; height: 50px; }
-	div.user { float: left; width: 150px; height: 50px; }
+	div#branding { float: left; width: 100px; height: 50px; }
+	div#message_bar { float: left; width: 750px; height: 50px; }
+	div#session { float: left; width: 150px; height: 50px; }
 	@include clearfix;
 }
 

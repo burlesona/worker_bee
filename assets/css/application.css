@@ -642,15 +642,15 @@ header {
   width: 1000px;
   height: 50px;
   line-height: 50px; }
-  header div.branding {
+  header div#branding {
     float: left;
     width: 100px;
     height: 50px; }
-  header div.message_bar {
+  header div#message_bar {
     float: left;
     width: 750px;
     height: 50px; }
-  header div.user {
+  header div#session {
     float: left;
     width: 150px;
     height: 50px; }
