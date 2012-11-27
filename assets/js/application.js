@@ -16,7 +16,6 @@
       var loginHandler, userHandler;
       console.log("START!");
       if (localStorage['api_key'] != null) {
-        console.log("CONTINUE!");
         $.ajaxSetup({
           dataType: 'JSON',
           headers: {
@@ -26,20 +25,18 @@
         userHandler = new Hive.UserHandler;
         return Hive.Controller.load();
       } else {
-        console.log("PROMPT!");
         return loginHandler = new Hive.LoginHandler;
       }
     },
     login: function(key, user) {
-      console.log("LOGIN!");
       localStorage['api_key'] = key;
       Hive.data.user = user;
       return Hive.start();
     },
     logout: function() {
-      console.log("LOGOUT!");
       localStorage.removeItem('api_key');
       this.data = {};
+      this.setMessage('Logged Out');
       return Hive.start();
     },
     resource: function(name) {

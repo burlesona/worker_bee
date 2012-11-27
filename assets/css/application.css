@@ -707,6 +707,11 @@ div.project_selector {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
     text-align: left; }
 
+div.project_switcher {
+  text-align: center; }
+  div.project_switcher span {
+    font-weight: 700; }
+
 div.project_handler div.story_handler {
   display: inline-block;
   position: relative;

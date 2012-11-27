@@ -68,6 +68,31 @@
 
   })(Hive.UiObject);
 
+  Hive.ProjectSwitcher = (function(_super) {
+
+    __extends(ProjectSwitcher, _super);
+
+    function ProjectSwitcher(project) {
+      this.name = 'projectSwitcher';
+      this.viewport = 'toolbar';
+      this.data = project;
+      this.render();
+    }
+
+    ProjectSwitcher.prototype.bind = function(container) {
+      this.container = container;
+      this["switch"] = container.find('a');
+      return this["switch"].click(function(event) {
+        event.preventDefault();
+        localStorage.removeItem('active_project');
+        return Hive.Controller.load();
+      });
+    };
+
+    return ProjectSwitcher;
+
+  })(Hive.UiObject);
+
   Hive.ProjectHandler = (function(_super) {
 
     __extends(ProjectHandler, _super);
@@ -79,7 +104,7 @@
       this.viewport = 'main';
       this.load();
       this.render(function() {
-        Hive.setMessage("" + _this.data.name);
+        new Hive.ProjectSwitcher(_this.data);
         return localStorage['active_project'] = _this.data.id;
       });
     }

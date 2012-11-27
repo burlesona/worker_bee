@@ -19,8 +19,6 @@ root.Hive =
 		console.log "START!"
 		# See if a user is already logged in, and load the app if so.
 		if localStorage['api_key']?
-			console.log "CONTINUE!"
-			
 			# Set the default Ajax values for the app.
 			$.ajaxSetup
 				dataType: 'JSON'
@@ -34,22 +32,20 @@ root.Hive =
 
 		# If a user is not logged in, prompt to login.
 		else
-			console.log "PROMPT!"
 			loginHandler = new Hive.LoginHandler
 
 
 	# Login a user and restart the app
 	login: (key, user) ->
-		console.log "LOGIN!"
 		localStorage['api_key'] = key
 		Hive.data.user = user
 		Hive.start()
 
 	# Logout a user, clear local storage, and restart the app
 	logout: ->
-		console.log "LOGOUT!"
 		localStorage.removeItem('api_key')
 		this.data = {}
+		this.setMessage 'Logged Out'
 		Hive.start()
 
 	# Converts a resource name into a URL

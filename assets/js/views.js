@@ -20,6 +20,9 @@
     projectSelectorItem: function(data) {
       return $("<div class=\"project\">\n	<h1>" + data.name + " <small>" + data.id + "</small></h1>\n	<p class=\"description\">\n		" + data.description + "\n	</p>\n	<a class=\"button\">Select</a>\n</div>");
     },
+    projectSwitcher: function(data) {
+      return $("<div class=\"project_switcher\">\n	<span class=\"name\">Stories and Tasks for " + data.name + "</span> |\n	<a href=\"#\">Switch Project</a>\n</div>");
+    },
     projectHandler: function(data) {
       return $("<div class=\"project_handler\">\n</div>");
     },

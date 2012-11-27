@@ -35,6 +35,22 @@ class Hive.ProjectSelector.Item extends Hive.UiObject
 			event.preventDefault()
 			Hive.Controller.load 'project', @data.id
 
+# Handler to display and switch projects
+class Hive.ProjectSwitcher extends Hive.UiObject
+	# Does not interact with data, no need to set @resource
+	constructor: (project) ->
+		@name = 'projectSwitcher'
+		@viewport = 'toolbar'
+		@data = project
+		this.render()
+
+	bind: (container) ->
+		@container = container
+		@switch = container.find('a')
+		@switch.click (event) ->
+			event.preventDefault()
+			localStorage.removeItem('active_project')
+			Hive.Controller.load()
 
 # Handler to display a specific project
 class Hive.ProjectHandler extends Hive.UiObject
@@ -44,7 +60,7 @@ class Hive.ProjectHandler extends Hive.UiObject
 		@viewport = 'main'
 		this.load()
 		this.render => #fat arrow!
-			Hive.setMessage "#{@data.name}"
+			new Hive.ProjectSwitcher @data
 			localStorage['active_project'] = @data.id
 
 	bind: (container) ->

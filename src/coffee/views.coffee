@@ -47,6 +47,14 @@ Hive.Views =
 			</div>
 		""")
 
+	projectSwitcher: (data) ->
+		$("""
+			<div class="project_switcher">
+				<span class="name">Stories and Tasks for #{data.name}</span> |
+				<a href="#">Switch Project</a>
+			</div>
+		""")
+
 	projectHandler: (data) ->
 		$("""
 			<div class="project_handler">
