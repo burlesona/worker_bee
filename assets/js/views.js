@@ -5,6 +5,9 @@
   root = typeof exports !== "undefined" && exports !== null ? exports : this;
 
   Hive.Views = {
+    statusMessage: function(message) {
+      return $("<div class=\"message\">" + message + "</div>");
+    },
     loginHandler: function() {
       return $("<div class=\"login_handler\">\n	<h1>Welcome to Worker Bee</h1>\n	<p>Please login with your AgileZen API Key.</p>\n	<div class=\"input\">\n		<form action=\"/\" method=\"get\">\n			<input id=\"api_key\" type=\"text\"></input>\n			<input type=\"submit\" value=\"Login\"></input>\n			<div class=\"status\"></div>\n		</form>\n	</div>\n	<p class=\"hint\">Test API Key: d67bb4e8a3124603a69f7587020cffc2</p>\n</div>");
     },
@@ -16,6 +19,15 @@
     },
     projectSelectorItem: function(data) {
       return $("<div class=\"project\">\n	<h1>" + data.name + " <small>" + data.id + "</small></h1>\n	<p class=\"description\">\n		" + data.description + "\n	</p>\n	<a class=\"button\">Select</a>\n</div>");
+    },
+    projectHandler: function(data) {
+      return $("<div class=\"project_handler\">\n</div>");
+    },
+    storyHandler: function(data) {
+      return $("<div class=\"story_handler\">\n	<div class=\"status " + (data.status.toLowerCase()) + "\">" + data.status + "</div>\n	<p class=\"text\">" + data.text + "</p>\n	<div class=\"tasks\">\n	</div>\n</div>");
+    },
+    taskHandler: function(data) {
+      return $("<div class=\"task_handler\">\n	<input type=\"checkbox\">\n	<span>" + data.text + "</span>\n</div>");
     }
   };
 

@@ -1,3 +1,7 @@
+div#toolbar {
+	div.message { text-align: center; font-weight: 700; }
+}
+
 div.login_handler {
 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;
 	background: $white; @include box-shadow;
@@ -15,4 +19,30 @@ div.project_selector {
 		display: inline-block; width: 220px; padding: 40px;
 		background: $white; @include box-shadow; text-align: left;
 	}
+}
+
+div.project_handler {
+	div.story_handler {
+		display: inline-block; position: relative; width: 220px; padding: 40px;
+		background: $white; @include box-shadow;
+		vertical-align: top; margin: 0 20px 20px 0;
+		p.text { font-size: 18px; line-height: 22px; margin-top: 9px; }
+		div.status {
+			position: absolute; top: 20px; left: 40px; text-transform: capitalize;
+			&.started { color: $notice2; }
+			&.ready { color: $success2; }
+		}
+
+		div.tasks {
+			padding-top: 10px; border-top: 1px solid $light1;
+		}
+		
+		div.task_handler {
+			line-height: 18px; font-size: 15px; margin-bottom: 9px; @include clearfix;
+			input[type=checkbox] { display: block; float: left; margin-right: 4px; margin-top: 1px; width: 14px; }
+			span { display: block; float: left; width: 200px; }
+			span.complete { color: $gray; }
+		}
+	}
+
 }

@@ -24,17 +24,25 @@
         });
       });
     },
-    load: function(resource) {
-      var projectSelector;
+    load: function(resource, data) {
+      var handler, projectSelector, viewHandler;
+      if (data == null) {
+        data = null;
+      }
       if (resource != null) {
-
-      } else if (localStorage['active_resource'] != null) {
-
+        handler = this.handlerizeString(resource);
+        return viewHandler = new Hive[handler](data);
       } else if (localStorage['active_project'] != null) {
-
+        return handler = new Hive.ProjectHandler(localStorage['active_project']);
       } else {
         return projectSelector = new Hive.ProjectSelector;
       }
+    },
+    handlerizeString: function(string) {
+      string = string.replace(/\w\S*/g, function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      });
+      return string + "Handler";
     }
   };
 

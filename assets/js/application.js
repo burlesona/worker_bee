@@ -2,7 +2,7 @@
 (function() {
   var root;
 
-  require(['jquery', 'controller', 'views', 'ui', 'login', 'user', 'projects'], function($) {
+  require(['jquery', 'controller', 'views', 'ui', 'login', 'user', 'projects', 'stories'], function($) {
     return jQuery(function() {
       return Hive.start();
     });
@@ -55,10 +55,40 @@
           error: function(xhr, status, error) {},
           success: function(data, status, error) {
             Hive.data[name] = data;
-            return callback(data);
+            if (callback != null) {
+              return callback(data);
+            }
           }
         });
       }
+    },
+    setData: function(name, data, callback) {
+      console.log("send data");
+      console.log(data);
+      return $.ajax({
+        url: Hive.resource(name),
+        async: false,
+        contentType: 'application/json',
+        type: 'PUT',
+        data: JSON.stringify(data),
+        dataType: 'text',
+        error: function(xhr, status, error) {
+          console.log(xhr);
+          console.log(status);
+          return console.log(error);
+        },
+        success: function(response, status, error) {
+          Hive.data[name] = response;
+          if (callback != null) {
+            return callback(response);
+          }
+        }
+      });
+    },
+    setMessage: function(message) {
+      var element;
+      element = Hive.Views.statusMessage(message);
+      return Hive.Controller.setViewport('toolbar', element);
     }
   };
 

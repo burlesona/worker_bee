@@ -15,12 +15,13 @@
       this.name = 'projectSelector';
       this.viewport = 'main';
       this.load();
-      this.render();
+      this.render(function() {
+        return Hive.setMessage('Please Select a Project');
+      });
     }
 
     ProjectSelector.prototype.bind = function(container) {
       var project, projects, _i, _len, _results;
-      console.log("Called bind on project");
       this.container = container;
       projects = this.data.items;
       _results = [];
@@ -44,21 +45,62 @@
       this.data = data;
       this.container = Hive.Views.projectSelectorItem(data);
       this.parent = $('div.project_selector');
-      this.container.hide();
+      this.container.css({
+        opacity: 0
+      });
       this.parent.append(this.container);
-      this.container.fadeIn(500, function() {
+      this.container.animate({
+        opacity: 1
+      }, 500, function() {
         return _this.bind();
       });
     }
 
     Item.prototype.bind = function() {
+      var _this = this;
       return this.container.find('a').click(function(event) {
         event.preventDefault();
-        return console.log("Selected Project");
+        return Hive.Controller.load('project', _this.data.id);
       });
     };
 
     return Item;
+
+  })(Hive.UiObject);
+
+  Hive.ProjectHandler = (function(_super) {
+
+    __extends(ProjectHandler, _super);
+
+    function ProjectHandler(projectId) {
+      var _this = this;
+      this.resource = "projects/" + projectId;
+      this.name = 'projectHandler';
+      this.viewport = 'main';
+      this.load();
+      this.render(function() {
+        Hive.setMessage("" + _this.data.name);
+        return localStorage['active_project'] = _this.data.id;
+      });
+    }
+
+    ProjectHandler.prototype.bind = function(container) {
+      var self;
+      self = this;
+      this.container = container;
+      return Hive.getData(this.resource + '/stories?where=phase:ready or phase:working', function(data) {
+        var stories, story, _i, _len, _results;
+        stories = data.items;
+        _results = [];
+        for (_i = 0, _len = stories.length; _i < _len; _i++) {
+          story = stories[_i];
+          _results.push(new Hive.StoryHandler(story, self));
+        }
+        return _results;
+      });
+    };
+
+    return ProjectHandler;
 
   })(Hive.UiObject);
 

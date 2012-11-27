@@ -1,5 +1,5 @@
 # Load all the necessary files via requireJS, then start the app.
-require ['jquery','controller','views','ui','login','user','projects'], ($) ->
+require ['jquery','controller','views','ui','login','user','projects','stories'], ($) ->
 	jQuery ->
 		Hive.start()
 
@@ -68,4 +68,29 @@ root.Hive =
 					# TODO: Display error in the toolbar?
 				success: (data, status, error) ->
 					Hive.data[name] = data
-					callback(data)
+					callback(data) if callback?
+
+	# Send data to the API and save it to memory.
+	setData: (name, data, callback) ->
+		console.log "send data"
+		console.log data
+		$.ajax
+			url: Hive.resource(name)
+			async: false
+			contentType: 'application/json'
+			type: 'PUT'
+			data: JSON.stringify(data)
+			dataType: 'text'
+			error: (xhr, status, error) ->
+				console.log xhr
+				console.log status
+				console.log error
+			success: (response, status, error) ->
+				Hive.data[name] = response
+				callback(response) if callback?
+
+
+	# Set application status messages.
+	setMessage: (message) ->
+		element = Hive.Views.statusMessage(message)
+		Hive.Controller.setViewport 'toolbar', element

@@ -15,12 +15,22 @@ Hive.Controller =
 				callback() if callback?
 
 	# Load the view for a given resource.
-	load: (resource) ->
+	load: (resource, data = null) ->
 		if resource?
 			# load that view
-		else if localStorage['active_resource']?
-			# load that view
+			handler = this.handlerizeString( resource )
+			viewHandler = new Hive[handler] data
+
 		else if localStorage['active_project']?
-			# load that project view
+			# load the last project that was open
+			handler = new Hive.ProjectHandler localStorage['active_project']
+		
 		else
+			# load the project selector
 			projectSelector = new Hive.ProjectSelector
+
+	# Convert a string for a resouce into the name of its handler.
+	handlerizeString: (string) ->
+    string = string.replace /\w\S*/g, (txt) ->
+    	txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    string + "Handler"

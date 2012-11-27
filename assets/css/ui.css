@@ -1,18 +1,21 @@
 /*
 Syntax error: Undefined variable: "$white".
-        on line 3 of src/scss/ui.scss
+        on line 7 of src/scss/ui.scss
 
-1: div.login_handler {
-2: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;
-3: 	background: $white; @include box-shadow;
-4: 	p { font-size: 20px; line-height: 28px; }
-5: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }
-6: 	input#api_key { width: 70%; margin: 0; }
-7: 	input[type=submit] { width: 28%; margin: 0; }
-8: }
+2: 	div.message { text-align: center; font-weight: 700; }
+3: }
+4: 
+5: div.login_handler {
+6: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;
+7: 	background: $white; @include box-shadow;
+8: 	p { font-size: 20px; line-height: 28px; }
+9: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }
+10: 	input#api_key { width: 70%; margin: 0; }
+11: 	input[type=submit] { width: 28%; margin: 0; }
+12: }
 
 Backtrace:
-src/scss/ui.scss:3
+src/scss/ui.scss:7
 /Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/variable.rb:49:in `_perform'
 /Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/script/node.rb:40:in `perform'
 /Users/Andrew/.rbenv/versions/1.9.3-p286/lib/ruby/gems/1.9.1/gems/sass-3.2.3/lib/sass/tree/visitors/perform.rb:296:in `visit_prop'
@@ -58,4 +61,4 @@ src/scss/ui.scss:3
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$white\".\A         on line 3 of src/scss/ui.scss\A \A 1: div.login_handler {\A 2: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;\A 3: 	background: $white; @include box-shadow;\A 4: 	p { font-size: 20px; line-height: 28px; }\A 5: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }\A 6: 	input#api_key { width: 70%; margin: 0; }\A 7: 	input[type=submit] { width: 28%; margin: 0; }\A 8: }"; }
+  content: "Syntax error: Undefined variable: \"$white\".\A         on line 7 of src/scss/ui.scss\A \A 2: 	div.message { text-align: center; font-weight: 700; }\A 3: }\A 4: \A 5: div.login_handler {\A 6: 	width: 400px; height: 240px; margin: 150px auto 0; padding: 80px;\A 7: 	background: $white; @include box-shadow;\A 8: 	p { font-size: 20px; line-height: 28px; }\A 9: 	p.hint { font-style: italic; font-size: 12px; line-height:14px; color: $light2; }\A 10: 	input#api_key { width: 70%; margin: 0; }\A 11: 	input[type=submit] { width: 28%; margin: 0; }\A 12: }"; }

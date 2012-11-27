@@ -2,6 +2,11 @@
 root = exports ? this
 
 Hive.Views =
+	statusMessage: (message) ->
+		$("""
+			<div class="message">#{message}</div>
+		""")
+
 	loginHandler: ->
 		$("""
 		<div class="login_handler">
@@ -39,5 +44,29 @@ Hive.Views =
 					#{data.description}
 				</p>
 				<a class="button">Select</a>
+			</div>
+		""")
+
+	projectHandler: (data) ->
+		$("""
+			<div class="project_handler">
+			</div>
+		""")
+
+	storyHandler: (data) ->
+		$("""
+			<div class="story_handler">
+				<div class="status #{data.status.toLowerCase()}">#{data.status}</div>
+				<p class="text">#{data.text}</p>
+				<div class="tasks">
+				</div>
+			</div>
+		""")
+
+	taskHandler: (data) ->
+		$("""
+			<div class="task_handler">
+				<input type="checkbox">
+				<span>#{data.text}</span>
 			</div>
 		""")

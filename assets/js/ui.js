@@ -8,21 +8,34 @@
 
     function UiObject() {}
 
-    UiObject.prototype.render = function() {
+    UiObject.prototype.render = function(callback) {
       var element, self;
       self = this;
       element = Hive.Views[this.name](this.data);
-      return Hive.Controller.setViewport(this.viewport, element, function() {
-        return self.bind(element);
-      });
+      if (this.viewport != null) {
+        Hive.Controller.setViewport(this.viewport, element, function() {
+          return self.bind(element);
+        });
+      } else if (this.parent != null) {
+        this.parent.append(element);
+        self.bind(element);
+      } else {
+        console.log("Warning: Nowhere to render " + this.name);
+      }
+      if (callback != null) {
+        return callback();
+      }
     };
 
     UiObject.prototype.load = function() {
-      var self;
-      self = this;
+      var _this = this;
       return Hive.getData(this.resource, function() {
-        return self.data = Hive.data[self.resource];
+        return _this.data = Hive.data[_this.resource];
       });
+    };
+
+    UiObject.prototype.bind = function() {
+      return console.log("Warning: Bind was not set on " + this.name);
     };
 
     return UiObject;
