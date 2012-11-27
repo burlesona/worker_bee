@@ -17,7 +17,6 @@ class Hive.ProjectSelector extends Hive.UiObject
 		projects = @data.items
 		new Hive.ProjectSelector.Item(project) for project in projects
 
-
 # Handler for the invididual projects in a project selector
 class Hive.ProjectSelector.Item extends Hive.UiObject
 	# Won't call load, so no need to define @resource

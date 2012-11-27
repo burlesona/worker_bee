@@ -27,10 +27,13 @@ div.project_switcher {
 }
 
 div.project_handler {
+	position: relative; margin: 40px auto 0; width: 1000px; overflow: auto;
+	white-space: nowrap;
+
 	div.story_handler {
-		display: inline-block; position: relative; width: 220px; padding: 40px;
-		background: $white; @include box-shadow;
-		vertical-align: top; margin: 0 20px 20px 0;
+		display: inline-block; position: relative; width: 220px; padding: 40px; margin: 0 20px 20px 0; 
+		background: $white; @include box-shadow; z-index: 0;
+		vertical-align: top; white-space: normal;
 		p.text { font-size: 18px; line-height: 22px; margin-top: 9px; }
 		div.status {
 			position: absolute; top: 20px; left: 40px; text-transform: capitalize;

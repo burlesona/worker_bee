@@ -610,7 +610,7 @@ form.stacked {
     width: auto; }
 
 body {
-  background: #EEE;
+  background: #eaebec;
   font-size: 13px;
   font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-weight: 300;
@@ -633,9 +633,7 @@ div.status.error {
   color: #d64338; }
 
 section#main {
-  position: relative;
-  width: 1000px;
-  margin: 0 auto; }
+  position: relative; }
 
 small {
   color: #bbbbbb; }
@@ -712,53 +710,61 @@ div.project_switcher {
   div.project_switcher span {
     font-weight: 700; }
 
-div.project_handler div.story_handler {
-  display: inline-block;
+div.project_handler {
   position: relative;
-  width: 220px;
-  padding: 40px;
-  background: white;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
-  vertical-align: top;
-  margin: 0 20px 20px 0; }
-  div.project_handler div.story_handler p.text {
-    font-size: 18px;
-    line-height: 22px;
-    margin-top: 9px; }
-  div.project_handler div.story_handler div.status {
-    position: absolute;
-    top: 20px;
-    left: 40px;
-    text-transform: capitalize; }
-    div.project_handler div.story_handler div.status.started {
-      color: #e59013; }
-    div.project_handler div.story_handler div.status.ready {
-      color: #68af2f; }
-  div.project_handler div.story_handler div.tasks {
-    padding-top: 10px;
-    border-top: 1px solid #eaebec; }
-  div.project_handler div.story_handler div.task_handler {
-    line-height: 18px;
-    font-size: 15px;
-    margin-bottom: 9px; }
-    div.project_handler div.story_handler div.task_handler:after {
-      content: "\0020";
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden;
-      overflow: hidden; }
-    div.project_handler div.story_handler div.task_handler input[type=checkbox] {
-      display: block;
-      float: left;
-      margin-right: 4px;
-      margin-top: 1px;
-      width: 14px; }
-    div.project_handler div.story_handler div.task_handler span {
-      display: block;
-      float: left;
-      width: 200px; }
-    div.project_handler div.story_handler div.task_handler span.complete {
-      color: #bbbbbb; }
+  margin: 40px auto 0;
+  width: 1000px;
+  overflow: auto;
+  white-space: nowrap; }
+  div.project_handler div.story_handler {
+    display: inline-block;
+    position: relative;
+    width: 220px;
+    padding: 40px;
+    margin: 0 20px 20px 0;
+    background: white;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    vertical-align: top;
+    white-space: normal; }
+    div.project_handler div.story_handler p.text {
+      font-size: 18px;
+      line-height: 22px;
+      margin-top: 9px; }
+    div.project_handler div.story_handler div.status {
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      text-transform: capitalize; }
+      div.project_handler div.story_handler div.status.started {
+        color: #e59013; }
+      div.project_handler div.story_handler div.status.ready {
+        color: #68af2f; }
+    div.project_handler div.story_handler div.tasks {
+      padding-top: 10px;
+      border-top: 1px solid #eaebec; }
+    div.project_handler div.story_handler div.task_handler {
+      line-height: 18px;
+      font-size: 15px;
+      margin-bottom: 9px; }
+      div.project_handler div.story_handler div.task_handler:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+        overflow: hidden; }
+      div.project_handler div.story_handler div.task_handler input[type=checkbox] {
+        display: block;
+        float: left;
+        margin-right: 4px;
+        margin-top: 1px;
+        width: 14px; }
+      div.project_handler div.story_handler div.task_handler span {
+        display: block;
+        float: left;
+        width: 200px; }
+      div.project_handler div.story_handler div.task_handler span.complete {
+        color: #bbbbbb; }

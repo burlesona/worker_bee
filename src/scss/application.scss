@@ -38,11 +38,11 @@ $baseline: 18px;
 @import 'resetize';
 @import 'forms';
 
-body { background: #EEE; @include font; }
+body { background: $light1; @include font; }
 input[type=text] { @include standard_input; }
 input[type=submit] { display: inline-block; vertical-align: baseline; height: 28px; }
 div.status.error { color: $error2; }
-section#main { position: relative; width: 1000px; margin: 0 auto; }
+section#main { position: relative; }
 small { color: $gray; }
 
 header {
